@@ -1,0 +1,96 @@
+*{
+   background-color: rgb(255, 255, 255);
+   margin: 0px;
+   padding: 0px;
+}
+
+
+#app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container{
+    margin-top: 5px;
+}
+
+
+#container .logo{
+}
+
+#container .logo img{
+    width: 250px;
+    height: 250px;
+}
+
+#container .form{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container .form label{
+    font-weight: bold;
+    font-family: monospace;
+}
+
+
+#container .form input{
+    border-radius: 4px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #605ca8
+}
+
+#container .form .btn{
+    margin-top: 10px;
+    background-color: #605ca8 !important;
+    color: aliceblue;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.inputGroup {
+    margin-top: 5px;
+}
+.inputGroup input{
+    display: block;
+    width: 100%;
+    height: 18px;
+    padding: 3px 5px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
