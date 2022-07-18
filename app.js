@@ -7,8 +7,8 @@ const desconnectVPN = require('./src/func/desconnect');
 //OPEN
 const createWindow = ()=>{
     const win = new BrowserWindow({
-        width: 300,
-        height: 500,
+        width: 350,
+        height: 600,
         autoHideMenuBar: true,
         transparent: true,
         icon: './src/img/favicon.ico',

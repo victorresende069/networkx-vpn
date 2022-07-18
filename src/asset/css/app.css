@@ -15,13 +15,9 @@
     margin-top: 5px;
 }
 
-
-#container .logo{
-}
-
 #container .logo img{
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 230px;
 }
 
 #container .form{
@@ -44,6 +40,14 @@
     border-width: 0 0 2px;
     border-color: #605ca8
 }
+
+.textInputConnect{
+    margin-top: 10px;
+    color: rgb(41, 41, 41);
+    font-weight: bold;
+    font-family: monospace;
+}
+
 
 #container .form .btn{
     margin-top: 10px;
@@ -71,7 +75,7 @@
     user-select: none;
 }
 .inputGroup {
-    margin-top: 5px;
+    margin-top: 8px;
 }
 .inputGroup input{
     display: block;
