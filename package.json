@@ -1,0 +1,27 @@
+{
+  "name": "electron",
+  "version": "0.1.0",
+  "description": "Developer Virtual Private Network ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorresende069/networkx-vpn.git"
+  },
+  "keywords": [
+    "vpn",
+    "virtual",
+    "private",
+    "network",
+    "electron",
+    "nodejs."
+  ],
+  "author": "Victor Resende",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorresende069/networkx-vpn/issues"
+  },
+  "homepage": "https://github.com/victorresende069/networkx-vpn#readme"
+}
