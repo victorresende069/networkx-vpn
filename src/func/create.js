@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const createvpn = async function(host){
-    let dirV = path.join(__dirname, 'vpn.pbk')
+    let dirV = path.join('vpn.pbk')
 
     const data = `[VPN]
 MEDIA=rastapi

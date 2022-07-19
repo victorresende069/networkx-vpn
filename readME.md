@@ -13,3 +13,5 @@ HTML, CSS, JS e Electron
 <h4 align="center"> 
 	🚧  Electron Virtual Private Network🚀 Em construção...  🚧
 </h4>
+
+//electron-packager . NetworkX \ --platform=win32 \ --arch=x64 \ --version=0.1.0 \ --icon="./src/img/favicon.ico" \ --overwrite \ --out=release/

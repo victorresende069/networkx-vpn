@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const deletevpn = async function(){
-    let dirV = path.join(__dirname, 'vpn.pbk')
+    let dirV = path.join('vpn.pbk')
     fs.unlinkSync(dirV);
 }
 
