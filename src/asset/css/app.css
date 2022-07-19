@@ -1,5 +1,5 @@
 *{
-   background-color: rgb(255, 255, 255);
+   background-color: transparent;
    margin: 0px;
    padding: 0px;
 }
@@ -33,6 +33,10 @@
     font-family: monospace;
 }
 
+.loading{
+    animation: spin 2s linear infinite;
+}
+
 
 #container .form input{
     border-radius: 4px;
@@ -45,6 +49,8 @@
     margin-top: 10px;
     color: rgb(41, 41, 41);
     font-weight: bold;
+    width: 150px;
+    text-align: center;
     font-family: monospace;
 }
 
@@ -74,6 +80,40 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+
+#container .form .btnD{
+    margin-top: 10px;
+    background-color: #dc2727 !important;
+    color: aliceblue;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#container .form .inputGroup button:disabled{
+    background-color: #605ca87d!important;
+}
+
+
 .inputGroup {
     margin-top: 8px;
 }
@@ -98,3 +138,11 @@
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
 }
+
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,41 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network-X [VPN]</title>
     <link rel="stylesheet" href="../asset/css/app.css">
+    <link crossorigin='anonymous' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>
 </head>
+
 <body>
-    
-            <div id="app">
-                <div id="container">
-                    <div class="logo">
-                        <img src="../img/logo.png">
-                    </div>
-                    <div class="form" >
 
-                        <div class="inputGroup">
-                            <label>Usuário:</label>
-                            <input type="text" id="user"/>
-                        </div>
-                        <div class="inputGroup">
-                            <label>Senha:</label>
-                            <input type="password" id="password"/>
-                        </div>
-
-                        <p class="textInputConnect" id="returnConnection"></p>                        
-
-                        <div class="inputGroup">
-                            <button class="btn" id="connect">Conectar</button>
-                        </div>
-
-                    </div>
-                </div>
+    <div id="app">
+        <div id="container">
+            <div class="logo">
+                <img src="../img/logo.png">
             </div>
+            <div class="form">
+
+                <div class="inputGroup">
+                    <label>Usuário:</label>
+                    <input type="text" id="user" />
+                </div>
+                <div class="inputGroup">
+                    <label>Senha:</label>
+                    <input type="password" id="pass" />
+                </div>
+
+                <p class="textInputConnect" id="returnConnection"></p>
+
+                <div class="inputGroup" >
+                    
+                    <button id="btnConnect" onclick="Connect();" class="btn"> Conectar 
+                        
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
-<script type="text/javascript" src="../asset/js/app.js"></script>
+    <script>
+        const { ipcRenderer } = require('electron');
+        function Connect() {
+            let u = document.getElementById('user').value;
+            let p = document.getElementById('pass').value;
+            let r = document.getElementById('returnConnection');
+            let b = document.getElementById('btnConnect');
+
+            if (!u && !p) {
+                r.style = 'color: red;';
+                r.innerHTML = 'Campo Usuário/Senha é obrigatório!';
+                setTimeout(() => { return r.innerHTML = ''; }, 2000);
+            }
+            if (u.length <= 1 && p.length <= 1) {
+                r.style = 'color: red;';
+                r.innerHTML = 'Campo Usuário/Senha é curto!';
+                setTimeout(() => { return r.innerHTML = ''; }, 2000);
+            }
+            else{
+                r.innerHTML = '';
+                b.disabled = true;
+                b.innerHTML = 'Aguarde... <i class="loading fa-solid fa-spinner"></i>'
+
+                ipcRenderer.send('connect', u, p);
+
+                ipcRenderer.on('return', function(event, returnStatus){
+  
+                    if(returnStatus === '200'){
+                        b.innerHTML = 'Desconectar'
+                        b.onclick = 'Desconnect();';  
+                        b.className = 'btnD';
+
+                    }
+                    else{
+                        r.style = 'color: red;';
+                        r.innerHTML = 'Usuário e senha incorretos';
+                        b.disabled = false;
+                        b.innerHTML = 'Conectar'
+                    }
+
+                })
+
+            }
+        }
+
+        function Desconnect() {
+            let r = document.getElementById('returnConnection');
+            let b = document.getElementById('btnConnect');
+            ipcRenderer.send('desconnect');
+            ipcRenderer.on('return', function(event, returnStatus){
+                    if(returnStatus === '208'){
+                            alert('Desconectado com sucesso!')
+                    }
+                })
+        }
+
+    </script>
 </body>
+
 </html>

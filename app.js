@@ -1,8 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const connectVPN = require('./src/func/connect');
 const desconnectVPN = require('./src/func/desconnect');
+const createVPN = require('./src/func/create');
+const deleteVPN = require('./src/func/delete');
 
-
+createVPN('167.172.150.162');
 
 //OPEN
 const createWindow = ()=>{
@@ -11,14 +13,14 @@ const createWindow = ()=>{
         height: 600,
         autoHideMenuBar: true,
         transparent: true,
-        icon: './src/img/favicon.ico',
+        icon: __dirname+'/src/img/favicon.ico',
         webPreferences:{
             nodeIntegration: true,
             contextIsolation: false
         }
 
     })
-    win.loadFile('./src/view/index.html')
+    win.loadFile(__dirname+'/src/view/index.html')
 }
 //END
 app.whenReady().then(createWindow);
@@ -26,11 +28,11 @@ app.whenReady().then(createWindow);
 //CLOSE
 app.on("window-all-closed", function(){
     if(process.platform !== "darwin"){
+        deleteVPN();
+        desconnectVPN();
         app.quit(console.log('Application closed.'));
     }
 });
-
-
 
 
 //FUNCS

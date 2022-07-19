@@ -1,4 +1,5 @@
 # Network-X [VPN][VIRTUAL PRIVATE NETWORK]
+<img style="width: 180px;" src="./src/img/logo.png"/>
 ## Descrição
 <p align="center">Está aplicação e conceituada em uma VPN usando as seguinte ferremetnas e linguagens de programação,
 HTML, CSS, JS e Electron
