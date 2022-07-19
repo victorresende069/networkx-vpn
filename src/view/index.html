@@ -19,13 +19,15 @@
             </div>
             <div class="form">
 
-                <div class="inputGroup">
-                    <label>Usuário:</label>
-                    <input type="text" id="user" />
-                </div>
-                <div class="inputGroup">
-                    <label>Senha:</label>
-                    <input type="password" id="pass" />
+                <div id="inputsForm">
+                    <div class="inputGroup">
+                        <label>Usuário:</label>
+                        <input type="text" id="user" />
+                    </div>
+                    <div class="inputGroup">
+                        <label>Senha:</label>
+                        <input type="password" id="pass" />
+                    </div>
                 </div>
 
                 <p class="textInputConnect" id="returnConnection"></p>
@@ -44,11 +46,13 @@
 
     <script>
         const { ipcRenderer } = require('electron');
+        //CONECTAR VPN [Connect]
         function Connect() {
             let u = document.getElementById('user').value;
             let p = document.getElementById('pass').value;
             let r = document.getElementById('returnConnection');
             let b = document.getElementById('btnConnect');
+            let f = document.getElementById('inputsForm');
 
             if (!u && !p) {
                 r.style = 'color: red;';
@@ -71,15 +75,17 @@
   
                     if(returnStatus === '200'){
                         b.innerHTML = 'Desconectar'
-                        b.onclick = 'Desconnect();';  
-                        b.className = 'btnD';
-
+                        b.disabled = false;
+                        f.style = 'display: none;'
+                        b.setAttribute('class', 'btnDesco');
+                        b.setAttribute('onclick', 'Desconnect();');
                     }
                     else{
                         r.style = 'color: red;';
                         r.innerHTML = 'Usuário e senha incorretos';
                         b.disabled = false;
                         b.innerHTML = 'Conectar'
+                        setTimeout(() => { return r.innerHTML = ''; }, 2000);
                     }
 
                 })
@@ -87,18 +93,30 @@
             }
         }
 
+        //DESCONECTAR VPN [Desconnect]
         function Desconnect() {
             let r = document.getElementById('returnConnection');
             let b = document.getElementById('btnConnect');
+            let f = document.getElementById('inputsForm');
+            r.innerHTML = '';
+            b.disabled = true;
+            b.innerHTML = 'Aguarde... <i class="loading fa-solid fa-spinner"></i>'
+
             ipcRenderer.send('desconnect');
             ipcRenderer.on('return', function(event, returnStatus){
                     if(returnStatus === '208'){
-                            alert('Desconectado com sucesso!')
+                        f.style = 'display: block;'
+                        b.innerHTML = 'Conectar'
+                        b.disabled = false;
+                        r.style = 'color: green;';
+                        r.innerHTML = 'Desconectado com Sucesso!';
+                        b.setAttribute('class', 'btn');
+                        b.setAttribute('onclick', 'Connect();');
+                        setTimeout(() => { return r.innerHTML = ''; }, 2500);
                     }
                 })
         }
 
     </script>
 </body>
-
 </html>

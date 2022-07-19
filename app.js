@@ -10,7 +10,7 @@ createVPN('167.172.150.162');
 const createWindow = ()=>{
     const win = new BrowserWindow({
         width: 350,
-        height: 600,
+        height: 500,
         autoHideMenuBar: true,
         transparent: true,
         icon: __dirname+'/src/img/favicon.ico',
