@@ -4,15 +4,15 @@ const desconnectVPN = require('./src/func/desconnect');
 const createVPN = require('./src/func/create');
 const deleteVPN = require('./src/func/delete');
 
-createVPN('167.172.150.162');
+createVPN('host/ip');
 
 //OPEN
 const createWindow = ()=>{
     const win = new BrowserWindow({
         width: 350,
         height: 500,
+        resizable: false,
         autoHideMenuBar: true,
-        transparent: true,
         icon: __dirname+'/src/img/favicon.ico',
         webPreferences:{
             nodeIntegration: true,

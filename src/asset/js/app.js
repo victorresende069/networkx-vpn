@@ -1,6 +1,5 @@
+/*By Victor Resende*/
 const { ipcRenderer } = require('electron');
-
-
 
 function Connect(){
             let u = document.getElementById('user').value;

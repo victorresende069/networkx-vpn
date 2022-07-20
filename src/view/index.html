@@ -72,7 +72,6 @@
                 ipcRenderer.send('connect', u, p);
 
                 ipcRenderer.on('return', function(event, returnStatus){
-  
                     if(returnStatus === '200'){
                         b.innerHTML = 'Desconectar'
                         b.disabled = false;
@@ -87,7 +86,6 @@
                         b.innerHTML = 'Conectar'
                         setTimeout(() => { return r.innerHTML = ''; }, 2000);
                     }
-
                 })
 
             }
